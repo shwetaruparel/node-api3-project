@@ -3,7 +3,11 @@ const postDb = require("../posts/posts-model");
 
 function logger(req, res, next) {
   // DO YOUR MAGIC
-  console.log("I am logger!!");
+   console.log(`
+    REQUEST METHOD: ${req.method}
+    REQUEST URL: ${req.originalUrl}
+    TIMESTAMP: ${Date().toLocaleString()}
+  `);
   next();
 }
 
