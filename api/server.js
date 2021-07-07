@@ -9,10 +9,9 @@ server.use(express.json());
 // global middlewares and the user's router need to be connected here
 const {
   logger,
-  validateUserId,
-  validateUser,
-  validatePost
+  errorHandling
 } = require("./middleware/middleware");
+
 server.use("/api/users", logger, userRouter);
 //server.use("/api/users",userRouter);
 
@@ -21,6 +20,6 @@ server.get('/', (req, res) => {
 });
 
 // you just do this here at the end of the pipeline
-//server.use(errorHandling);
+server.use(errorHandling);
 
 module.exports = server;
